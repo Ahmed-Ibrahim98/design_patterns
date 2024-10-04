@@ -1,0 +1,39 @@
+Strategy Pattern:
+    # Introduction:
+        ** It's a behavioral design pattern
+        ** allows you to define a family of algorithms, puts each of them in a separate class, and makes
+           their objects interchangeable
+
+    # Code Breakdown:
+        ** BaseGameLoader:
+            - acts as the abstract strategy
+            - defines algorithm steps as abstract methods to be implemented by sub classes
+
+        ** DiabloLoader, WorldOfWarcraftLoader:
+            - act the concrete strategies
+            - each extend the BaseGameLoader superclass
+            - each have their own implementations of algorithm steps
+
+        ** GameLoader:
+            - acts as the client code and has a BaseGameLoader filed
+            - has a setter method for said field
+            - main method creates an object of the client class then sets the BaseGameLoader field
+              it also calls another method that defines the flow of the algorithm steps for a certain strategy
+              which is stored in the said field
+
+    # Comparisons:
+        ** Template Vs Strategy pattern:
+            - template has the algorithm flow defined in the template super class
+            - strategy takes that out of the template superclass and puts it in the client code
+            - it allows the client to set the the order for the algorithm steps for a specific strategy
+            - basically strategy is an extended template that is more flexible than template
+
+        ** Enhancements to the Strategy pattern:
+            - if we assume that the flow is fixed then no need to use strategy just use the template
+            - if flow changes then just put the flow of each strategy within itself instead of writing it
+              in the client which may cause errors if you make a mistake and if you invoke more than one strategy
+              then you are going to define several methods for several strategies which would increase client
+              code complexity
+
+        ** Strategy vs State:
+            - we already covered that in the ReadMe.txt of the behavioral_patterns.state_pattern folder. you may refer to it

@@ -1,0 +1,39 @@
+#Memento Pattern:
+    **Originator**:
+        Holds the current state of the object and can create a memento (a snapshot) of its
+        current state. It also can restore its state from a memento.
+
+    **Memento**:
+        Stores the snapshot of the Originator's state. It is an immutable object that
+        only the Originator can access and modify.
+
+    **Caretaker**:
+        Manages the mementos and stores them. It keeps track of the history of states but does not
+        modify them. It can also retrieve mementos to restore states.
+
+#Typical Flow:
+    **Save State**:
+        When a state change is about to occur, the Originator saves its current state to a Memento.
+        If the state is not null (initialized), the Memento is added to the Caretaker.
+
+    **Update State**:
+        The Originator updates its state to a new value.
+
+    **Undo Operation**:
+        The Caretaker provides the last Memento to the Originator, which then restores its state from the Memento.
+
+#Benefits:
+    **Encapsulation**:
+        State management details are hidden within the Memento object, making the system easier to manage.
+
+    **History Tracking**:
+        Allows tracking and restoring previous states, enabling undo/redo functionality.
+
+    **Separation of Concerns**:
+        The Caretaker is responsible for managing mementos, while the Originator handles its state.
+
+#P.S
+    you can always make your memento class an inner class inside the generator but that is only so for
+    simple projects like this one but for larger project to make things more modular and to follow principles
+    like separation of concerns and single responsibility you would need to make memento into its own separate
+    class
