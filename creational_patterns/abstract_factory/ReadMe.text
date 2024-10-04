@@ -1,0 +1,37 @@
+This is the Abstract Factory Pattern
+and what this does is basically:
+    1. make BeefBurger, ChickenBurger interfaces (abstract products)
+    2. make 4 classes ("ItalianChickenBurger" and "ItalianBeefBurger",
+       "AmericanChickenBurger" and "AmericanBeefBurger") (4 concrete products)
+       two of the four are for chicken hence they implement the ChickenBurger interface
+       the other two are for beef hence they implement the BeefBurger interface
+    3. make an abstract class called Restaurant that has two regular methods one called orderChickenBurger
+       and the other called orderBeefBurger
+       and two abstract methods one called createChickenBurger and the other called CreateBeefBurger
+       each one with a corresponding return type and each of them is called in a corresponding regular method
+       that has a corresponding burger return type and returns
+        an object of either ChickenBurger or BeefBurger type
+        - that is our abstract factory
+    4. make 2 concrete factories ("ItalianBurgerRestaurant" and "ItalianBurgerRestaurant") that
+       extend the Restaurant class and each one implements the two abstract methods in the Restaurant
+       and in the italian restaurant each method will return a burger of the italian family depending on
+       the method it will either return an instance of "ItalianChickenBurger" or "ItalianBeefBurger"
+       the same for the other concrete factory
+    5. create a RestaurantApp class that maks an object of type Restaurant which is a new instance of
+        either "ItalianChickenBurger" or "ItalianBeefBurger" and then call the orderBurger method on
+        either objects and then you will get your burger object which is also either an instance
+        of one of the four products depending on what type of instance you created and assigned
+        to the Restaurant object and which method you called on that instance
+        then you could do whatever it is you want with that burger object
+        you could call the prepare method on it if you want
+
+this obviously follows the open closed principle or single responsibility principle which is why
+it is a real factory method pattern
+it loosely couples the creation of a product or an object to the rest of the code and makes your code
+more independent and not open for modifications later on
+
+one key difference from the factory method is that the factory method returns a single type of created object
+which could be an instance of various types of products on the other hand the abstract factory returns several
+types of created objects and each object is an instance of various types of products
+and so abstract factory is used when dealing with families of related products
+and factory method is when you have a single family of related product

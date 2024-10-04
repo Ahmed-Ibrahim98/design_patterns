@@ -1,0 +1,27 @@
+This is the real factory method pattern
+and what this does is basically:
+    1. make Burger interface
+    2. make 2 classes ("ChickenBurger" and "BeefBurger") that implement
+       the Burger interface (concrete products)
+    3. make an abstract class called Restaurant that have a method called orderBurger
+        that has a return type of Burger and returns
+        an object of either ChickenBurger or BeefBurger type
+        - it also has another abstract method that is called createBurger and it is called
+          within the orderBurger method and that method returns a Burger type which could be an instance
+          of the "ChickenBurger" and "BeefBurger" type
+        - we that class our factory
+    4. make 2 concrete factories ("ChickenBurgerRestaurant" and "BeefBurgerRestaurant") that
+       extend the Restaurant class and each one returns a different instance of Burger class
+       it is either an instance of "ChickenBurger" or "BeefBurger"
+    5. create a RestaurantApp class that maks an object of type Restaurant which is a new instance of
+        either BeefBurgerRestaurant Or a ChickenBurgerRestaurant and then call the orderBurger method on
+        either objects and then you will get your burger object which is also either an instance
+        of the "ChickenBurger" and "BeefBurger" depending on what type of instance you created and assigned
+        to the Restaurant object
+        then you could do whatever it is you want with that burger object
+        you could call the prepare method on it if you want
+
+this obviously follows the open closed principle or single responsibility principle which is why
+it is a real factory method pattern
+it loosely couples the creation of a product or an object to the rest of the code and makes your code
+more independent and not open for modifications later on

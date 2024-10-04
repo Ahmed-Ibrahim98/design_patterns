@@ -1,0 +1,39 @@
+Prototype Design Pattern
+
+    - It's a creational design pattern
+    - Used to make clones of existing objects in a simple manner by calling a clone method
+      which is better than having to call the setters of one object pass it the getters of another
+      it's more clean and less expensive if the process of cloning is a major contributor to
+      performance downgrading
+    - basically you have an interface called Prototype which has an abstract method called clone
+    - then you have the class that you intend to make an object out of
+    - the class would then implement the Prototype interface and the class would have
+      its fields just like any normal class and setters and getters for the fields and any other methods
+    - you make two constructors one that is default (it is basically empty) and another that takes in a parameter
+      of the type of the class it self and then use the values stored inside that parameter to set and
+      initialize the fields of a new instance
+    - then  you override the clone method that takes parameter of the type of the class it self
+      and in the method you just return a nwe instance of the class using the second constructor that we
+      talked about and pass it the clone's parameter
+    - and voila you just created a clone of an exiting object you lucky guy
+    - one thing to note is that we completely left the process of cloning to the class it self
+      so if we ever tried to clone multiple objects then we would only need to call the clone method
+      how convenient is that ?!
+    - Super() just in case your class isn't the root class and it actually extend another class
+      then in the second constructor you would have to pass in the class object to the Super()
+      which would initialize the fields of the parent for you so you are not only cloning on the level of
+      subclasses but also the super classes as well so that you would be able to make an exact complete object
+      clone
+    - Registry is basically a grouping of objects that you often clone so that you
+      could quickly lookup a certain object with a unique identifier in the registry and if it exists you quickly
+      make a clone out of using the clone method
+
+    - deep and shallow cloning : basically if you have a field in your class that stores an object
+      and you try to make the clone's field = to the object's field object then you are not
+      cloning but rather making the clone point to the same object as the original which means that if
+      one changes anything about that field object it's going to affect the other so it's not a complete
+      standalone clone but rather a clone that shares the same objects with the original object which makes it
+      a shallow clone but a deep clone is making your clone reference its own set of objects that are identical
+      in content to the original making it so that any changes in the original or the clone doesn't affect each
+      other. now that the clone is a complete standalone copy of the original object that is what we call a deep
+      clone

@@ -1,0 +1,16 @@
+This is not a real factory method pattern but rather called the simple factory idiom
+and what this does is basically:
+    1. make Burger class
+    2. make 2 subclasses ("ChickenBurger" and "BeefBurger") that extend the Burger class
+    3. make a factory class that have a method that has a return type of Burger and returns
+        an object of type either ChickenBurger or BeefBurger based on a certain parameter
+        and an if else if conditions that checks that parameter variable
+    4. make a restaurant class that has a method that takes in a request parameter
+    5. the method creates an instance of factory and calls the factory method on it and pass it the request argument
+    6. the method eventually returns a burger type which is an instance of either ChickenBurger or BeefBurger
+    7. create a RestaurantApp class that maks an instance of Restaurant and then calls it's method
+        to order a burger with a certain argument and based on the argument your
+        either Beef Burger Or a Chicken Burger
+
+this obviously doesn't follow the open closed principle or single responsibility principle which is why
+it is not a real factory method pattern

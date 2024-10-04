@@ -1,0 +1,30 @@
+This is the Builder pattern
+and what this does is basically:
+    1. make class Car which has many private final fields
+    2. make another class called CarBuilder which constructs the car object
+    3. the builder here has fields the same as the the car class
+    4. the builder here has a build method that returns an object of the car class
+    5. the builder has also methods that modify each field and then returns the same instance so that
+       you would use it with the next method to modify another field
+    6. lastly another class is created called CarMain where the builder is instantiated and
+       and then using that instance you run all methods to assign values to car fields
+    7. call the builder.build and let there be a car object
+
+as you can see this is a basic builder that helps you to construct the object car without instantiating the class
+car itself and having to deal with the field initialization within the constructor and all that
+
+
+additionally you could create a director which is basically a class that has several methods
+each method constructs an object that has a certain type of build like this
+
+public void buildBugatti(CarBuilder builder){
+    builder.brand("Bugatti")
+            .color("Blue")
+            .nmbrOfDoors(2)
+            ...
+}
+then you would only need to call that method if you want to build a bugatti car that has fields
+of this fixed values
+and this helps you not having to write the same code all over again and you could just get to other fields
+that are special to each car like id etc. and chain them to builder object then you can call the builder.build
+to create your car object
